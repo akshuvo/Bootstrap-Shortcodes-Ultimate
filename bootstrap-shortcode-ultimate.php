@@ -5,7 +5,7 @@ Plugin URI:   https://devshuvo.com
 Author:       Akhtarujjaman Shuvo
 Author URI:   https://www.facebook.com/akhterjshuvo
 Version: 	  4.2.2
-Description:  Simple Plugin for Enqueue Bootstrap 4 and Some Helpful Shortcodes.
+Description:  Simple Plugin for Enqueue Bootstrap 4 CSS, JS, and Some Helpful WordPress Shortcodes for visual usages.
 License:      GPL2
 License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 */

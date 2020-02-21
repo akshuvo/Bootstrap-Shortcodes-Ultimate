@@ -1,7 +1,7 @@
 === Bootstrap Shortcodes Ultimate ===
 Contributors: mdshuvo
 Tags: CSS, bootstrap 4, Twitter Bootstrap, Twitter Bootstrap Javascript, Bootstrap CSS, WordPress Bootstrap,bootstrap4,bs4,grid,bootstrap grid,bootstrap shortcodes for wordpress, Bootstrap Shortcodes
-Tested up to: 5.3.1
+Tested up to: 5.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,6 +42,17 @@ Simple Plugin for Enqueue Bootstrap 4 CSS, JS, and Some Helpful WordPress Shortc
 # Colunm for Multi Devices
 <pre>[col sm="3" md="6" xl="12"] contents [/col]</pre>
 
+# Button Group
+#### Parameters:
+- class="" ( add extra classed with 'btn-group' )
+
+
+<pre>[btngroup]
+	[button tag='button' href="#" type="button" style='primary']Button 1[/button]
+	[button tag='button' href="#" type="button" style='primary']Button 2[/button]
+[/btngroup]</pre>
+
+
 # Buttons
 #### Parameters:
 - tag="button" ( button | a | input )
@@ -63,14 +74,22 @@ Simple Plugin for Enqueue Bootstrap 4 CSS, JS, and Some Helpful WordPress Shortc
 yes, i will in every update.
 
 
-
 = What version of Bootstrap did you used? =
 Latest (4.x)
 
+= How can I add Buttons? =
+<pre>[button tag="button" href="#" type="button" style="primary"]Click Me[/button]</pre> see description for more info
+
 
 == Screenshots ==
-1. Bootstrap 4
+1. Button Styles
 
 == Changelog ==
+= 4.2.2 : 22 Feb 2020 =
+* Fixed: Spaces/ tags removed inside shortcodes
+* Button Group shortcode added
+* Button shotcode added
+
+
 = 0.1 =
 * Initial release.

@@ -1,2 +1,2 @@
-# Bootstrap-Shortcodes-Ultimate
-Simple Plugin for Enqueue Bootstrap 4 and Some Helpful Shortcodes for WordPress
+# Bootstrap Shortcodes Ultimate
+Simple Plugin for Enqueue Bootstrap 4 CSS, JS, and Some Helpful WordPress Shortcodes for visual usages.
