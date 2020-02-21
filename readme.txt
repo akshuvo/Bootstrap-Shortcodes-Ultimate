@@ -80,6 +80,11 @@ Latest (4.x)
 = How can I add Buttons? =
 <pre>[button tag="button" href="#" type="button" style="primary"]Click Me[/button]</pre> see description for more info
 
+= How can I add Button Group? =
+<pre>[btngroup]
+	[button tag='button' href="#" type="button" style='primary']Button 1[/button]
+	[button tag='button' href="#" type="button" style='primary']Button 2[/button]
+[/btngroup]</pre>
 
 == Screenshots ==
 1. Button Styles
