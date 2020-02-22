@@ -44,7 +44,7 @@ Simple Plugin for Enqueue Bootstrap 4 CSS, JS, and Some Helpful WordPress Shortc
 
 # Button Group
 #### Parameters:
-- class="" ( add extra classed with 'btn-group' )
+- class="" ( add extra class with 'btn-group' )
 
 
 <pre>[btngroup]
@@ -62,6 +62,36 @@ Simple Plugin for Enqueue Bootstrap 4 CSS, JS, and Some Helpful WordPress Shortc
 
 
 <pre>[button tag="button" href="#" type="button" style="primary"]Click Me[/button]</pre>
+
+
+# Card
+#### Parameters:
+- class="" ( add extra class with 'card' )
+
+
+<pre>[card class="mycard"]
+	[cardtitle]
+		This is title.
+	[/cardtitle]
+
+	[cardbody]
+		This is card body really cool?
+	[/cardbody]
+[/card]</pre>
+
+# Accordion
+#### Parameters:
+- id="" ( required: a unique id for working correctely )
+- class="some-class" ( optional: if you need to add custom class for styling )
+- title="This is the title of the accordion" ( described the title )
+- open="no" ( optional: no | yes - Accordion item will be open or closed? by default: no )
+
+
+<pre>[accordion id="unique-id" class="some-class" title="This is the title of the accordion" open="no"]
+
+	Accordion Content will goes here
+
+[/accordion]</pre>
 
 ### More Shortcodes Coming Soon
 
@@ -88,8 +118,15 @@ Latest (4.x)
 
 == Screenshots ==
 1. Button Styles
+2. Accordion / Card
 
 == Changelog ==
+
+= 4.2.3 : 23 Feb 2020 =
+* Fixed: Spaces/ tags removed inside shortcodes
+* Button Group shortcode added
+* Button shotcode added
+
 = 4.2.2 : 22 Feb 2020 =
 * Fixed: Spaces/ tags removed inside shortcodes
 * Button Group shortcode added

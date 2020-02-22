@@ -95,3 +95,76 @@ function bs_button_shortcode( $atts, $content = null ) {
   
     <?php return ob_get_clean();
 }
+
+// Bootstrap Card
+add_shortcode('card','bs_card_shortcode');
+function bs_card_shortcode( $atts, $content = null ) {
+    // Params extraction
+    extract(
+        shortcode_atts(
+            array(
+                'class'   => ''
+            ), 
+            $atts
+        )
+    );    
+    ob_start();?>
+    <div class="card <?php esc_attr_e($class); ?>">
+        <?php echo do_shortcode($content); ?>        
+    </div>
+    <?php return ob_get_clean();
+}
+
+// Card Header
+add_shortcode('cardtitle','bs_cardtitle_shortcode');
+function bs_cardtitle_shortcode( $atts, $content = null ) {
+    ob_start();?>
+    <div class="card-header">
+      <?php echo do_shortcode($content); ?>
+    </div>
+    <?php return ob_get_clean();
+}
+
+// Card Body
+add_shortcode('cardbody','bs_cardbody_shortcode');
+function bs_cardbody_shortcode( $atts, $content = null ) {  
+    ob_start();?>
+    <div class="card-body">
+        <?php echo do_shortcode($content); ?>
+    </div>    
+    <?php return ob_get_clean();
+}
+
+// Bootstrap accordion
+// [accordion id="unique-id" class="unique-id" title="unique-id" open="no"] Accordion Content will goes here [/accordion]
+add_shortcode('accordion','bs_accordion_shortcode');
+function bs_accordion_shortcode( $atts, $content = null ) {     
+    // Params extraction
+    extract(
+        shortcode_atts(
+            array(
+                'id'   => 'toggleid',
+                'class'   => '',
+                'title'  => 'button',
+                'open'  => 'no'
+            ), 
+            $atts
+        )
+    );
+    ob_start();?>
+
+    <div class="card <?php esc_attr_e($class); ?> <?php esc_attr_e(sanitize_title($id)); ?>">        
+        <div class="card-header">
+          <a class="card-link" data-toggle="collapse" href="#<?php esc_attr_e(sanitize_title($id)); ?>">
+            <?php esc_html_e($title); ?>
+          </a>
+        </div>
+        <div id="<?php esc_attr_e(sanitize_title($id)); ?>" class="collapse <?php if( $open != "no" ){ _e('show'); } ?>">
+          <div class="card-body">
+            <?php echo do_shortcode($content); ?>
+          </div>
+        </div>
+    </div>
+
+    <?php return ob_get_clean();
+}

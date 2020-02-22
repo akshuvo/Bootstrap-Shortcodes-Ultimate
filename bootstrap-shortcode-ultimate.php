@@ -4,7 +4,7 @@ Plugin Name:  Bootstrap Shortcodes Ultimate
 Plugin URI:   https://devshuvo.com
 Author:       Akhtarujjaman Shuvo
 Author URI:   https://www.facebook.com/akhterjshuvo
-Version: 	  4.2.2
+Version: 	  4.2.3
 Description:  Simple Plugin for Enqueue Bootstrap 4 CSS, JS, and Some Helpful WordPress Shortcodes for visual usages.
 License:      GPL2
 License URI:  https://www.gnu.org/licenses/gpl-2.0.html
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
-define('BSTU_VERSION', '4.2.2');
+define('BSTU_VERSION', '4.2.3');
 
 /**
 * Including Plugin file for security
@@ -38,6 +38,9 @@ add_action('wp_enqueue_scripts','btsu_scripts');
 // Shortcodes
 include_once( dirname( __FILE__ ) . '/inc/shortcodes.php' );
 
+// Notice
+include_once( dirname( __FILE__ ) . '/inc/class-admin-notice.php' );
+
 /**
  * Remove extra paragraphs and line breaks
  */
@@ -52,3 +55,64 @@ function btsu_fix_shortcodes($content){
 	$content = strtr($content, $array);
 	return $content;
 }
+
+/**
+ * Add plugin action links.
+ *
+ * @since 1.0.0
+ * @version 4.0.0
+ */
+function btsu_plugin_action_links( $links ) {
+	$plugin_links = array(
+		'<a target="_blank" href="'.esc_url('https://wordpress.org/plugins/bs-shortcode-ultimate/#tab-description').'">' . esc_html__( 'Shortcodes', 'btsu' ) . '</a>',
+		'<a target="_blank" title="'.esc_attr('If you need help just create a support ticket').'" href="'.esc_url('https://wordpress.org/support/plugin/bs-shortcode-ultimate/#new-topic-0').'">' . esc_html__( 'Need Helps?', 'btsu' ) . '</a>',
+		'<a target="_blank" title="'.esc_attr('We hope you\'re enjoying This plugin! Could you please do us a BIG favor and give it a 5-star rating on WordPress to help us spread the word and boost our motivation?').'" href="'.esc_url('https://wordpress.org/support/plugin/bs-shortcode-ultimate/reviews/?filter=5#new-post').'">' . esc_html__( '★★★★★', 'btsu' ) . '</a>',
+	);
+	return array_merge( $plugin_links, $links );
+}
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'btsu_plugin_action_links' );
+
+/**
+ * Example Function for add notice
+ */
+
+function my_admin_notices($args){
+	$args[] = array(
+		'id' => "btsu_admin_notice",
+		'text' => "We hope you're enjoying this plugin! Could you please give a 5-star rating on WordPress to inspire us?",
+		'logo' => "https://ps.w.org/bs-shortcode-ultimate/assets/icon-256x256.png",
+		'border_color' => "#5b26a6",
+		'is_dismissable' => "true",
+		'dismiss_text' => "Dismiss",
+		'buttons' => array(
+			array(
+				'text' => "Shortcodes",
+				'link' => "https://wordpress.org/plugins/bs-shortcode-ultimate/#tab-description",
+				'icon' => "dashicons dashicons-external",
+				'class' => "button button-secondary",
+			),
+			array(
+				'text' => "Need Helps?",
+				'link' => "https://wordpress.org/support/plugin/bs-shortcode-ultimate/#new-topic-0",
+				'icon' => "dashicons dashicons-admin-comments",
+				'class' => "button button-secondary",
+			),
+			array(
+				'text' => "Need Custom Shortcode",
+				'link' => "mailto:info@addonmaster.com",
+				'icon' => "dashicons dashicons-email",
+				'class' => "button button-secondary",
+			),
+			array(
+				'text' => "Rate us 5*",
+				'link' => "https://wordpress.org/support/plugin/bs-shortcode-ultimate/#new-topic-0",
+				'icon' => "dashicons dashicons-external",
+				'class' => "button button-secondary",
+			),
+		)
+
+	);
+
+	return $args;
+}
+add_filter( 'addonmaster_admin_notice', 'my_admin_notices' );
